@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クロスラボ (Cross Lab Publishing) | 福島県郡山市のWeb制作・リデザイン</title>
+    <meta name="description" content="福島県郡山市のホームページ制作・Webデザイン。初期費用5,000円（モニター価格）から。地域密着、元理学療法士・グルメ垢中の人が丁寧にサポートします。">
+
+    <!-- Google Fonts: Noto Sans JP (日本語フォント) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // ブランドカラー
+                        brand: {
+                            navy: '#0F172A',   // 信頼感のあるネイビー (メイン)
+                            orange: '#F97316', // 温かみのあるオレンジ (アクセント)
+                            light: '#FFF7ED',  // 背景用の薄いオレンジ
+                            gray: '#334155',   // テキスト用グレー
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ふわっと表示アニメーション */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* キラッと光るボタンエフェクト */
+        @keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        .animate-shine {
+            animation: shine 1s;
+        }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEYNCC6969"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JEYNCC6969');
+    </script>
+</head>
+
+<body class="font-sans text-brand-gray bg-white antialiased">
+
+    <!-- ============================================== -->
+    <!-- ヘッダー -->
+    <!-- ============================================== -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <!-- ロゴ -->
+            <a href="#"
+                class="flex items-center gap-3 text-xl md:text-2xl font-black text-brand-navy tracking-tighter group">
+                <img src="./Gemini_Generated_Image_c2yn05c2yn05c2yn_11zon.png" alt="Cross Lab Logo"
+                    class="h-10 w-auto object-contain">
+                <div class="flex flex-col md:flex-row md:items-baseline">
+                    <span class="text-brand-orange">クロスラボ出版</span>
+                    <span
+                        class="text-xs md:text-sm font-bold ml-1 text-gray-400 group-hover:text-brand-orange transition">Cross
+                        Lab Publishing</span>
+                </div>
+            </a>
+
+            <!-- ナビゲーション (PC) -->
+            <nav class="hidden md:flex space-x-8 font-bold text-sm text-brand-navy">
+                <a href="#about" class="hover:text-brand-orange transition">プロフィール</a>
+                <a href="#process" class="hover:text-brand-orange transition">制作の流れ</a>
+                <a href="#price" class="hover:text-brand-orange transition">料金プラン</a>
+                <a href="https://lin.ee/4PXrsoU" target="_blank"
+                    class="bg-brand-orange text-white px-5 py-2 rounded-full hover:bg-orange-600 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    LINEで無料デモを依頼する
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- ファーストビュー (Hero) -->
+    <!-- ============================================== -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
+
+        <!-- 背景画像 (hero_bg.jpg) -->
+        <div class="absolute inset-0 z-0">
+            <img src="./images/hero_bg.jpg" alt="Cafe view with smartphone and laptop"
+                class="w-full h-full object-cover">
+            <!-- オーバーレイ (文字を読みやすくするため) -->
+            <div class="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-brand-light/50"></div>
+        </div>
+
+        <!-- 背景装飾 -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-navy/10 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+
+        <div class="container mx-auto px-4 md:px-6 relative z-10 text-center">
+
+            <div class="mb-6 text-center fade-in-up" style="animation-delay: 0.1s;">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-orange-100 text-brand-orange text-sm md:text-base font-bold mb-2">
+                    福島県内の個人事業主・小規模事業者様へ
+                </span>
+                <h2 class="text-lg md:text-2xl text-gray-600 font-bold">
+                    お店のホームページ、作りませんか？
+                </h2>
+            </div>
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight md:tracking-wide text-gray-800 mb-8 text-center fade-in-up"
+                style="animation-delay: 0.2s;">
+                あなたは完成品を見てから<br>
+                <span class="text-brand-orange">採用か不採用かを決めるだけ。</span>
+            </h1>
+
+            <div class="mt-0 mb-10 text-center fade-in-up" style="animation-delay: 0.3s;">
+                <p class="text-xs text-gray-500 leading-relaxed text-center">
+                    ※「不採用」の場合でも、<br>
+                    キャンセル料などの費用は一切かかりません。<br>
+                    その際、作成したデモサイトやお預かりしたデータ等は、<br>
+                    規定に基づき速やかに破棄いたします。
+                </p>
+            </div>
+
+            <!-- キャンペーン価格 -->
+            <div class="inline-block bg-white/90 backdrop-blur-sm border-2 border-brand-orange rounded-xl p-4 md:p-6 shadow-xl mb-10 transform rotate-1 hover:rotate-0 transition duration-300 fade-in-up"
+                style="animation-delay: 0.4s;">
+                <p class="text-sm font-bold text-gray-500 mb-1">Web制作 モニターキャンペーン</p>
+                <div class="flex flex-row items-baseline justify-center flex-nowrap gap-2">
+                    <span class="text-gray-400 line-through text-lg font-bold">30,000円</span>
+                    <span class="text-brand-orange font-black text-5xl md:text-7xl">5,000</span>
+                    <span class="text-xs md:text-sm font-bold text-gray-500 whitespace-nowrap inline-block">円
+                        (税込)</span>
+                </div>
+                <p class="text-xs text-red-500 font-bold mt-2">※先着3名様限定</p>
+            </div>
+
+            <!-- アクションボタン -->
+            <div class="fade-in-up" style="animation-delay: 0.5s;">
+                <a href="https://lin.ee/4PXrsoU" target="_blank"
+                    class="inline-flex items-center justify-center bg-[#06C755] text-white h-auto py-4 px-8 rounded-full shadow-lg hover:shadow-[#06C755]/40 hover:-translate-y-1 transition duration-300 relative group overflow-hidden">
+                    <svg class="w-8 h-8 mr-3 fill-current flex-shrink-0" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.5C6.8 2.5 2.5 6.2 2.5 10.8c0 2.6 1.4 4.9 3.5 6.4 0 0 .4 1.2-.1 3.7 0 0 2.2-.2 4.9-1.9 1.1.2 2.2.2 3.1.2 5.2 0 9.5-3.7 9.5-8.3S17.2 2.5 12 2.5z" />
+                    </svg>
+                    <div class="text-left leading-tight relative z-10">
+                        <span class="text-xs md:text-sm font-bold block">LINEで今すぐ</span>
+                        <span class="text-lg md:text-xl font-black block">無料デモを依頼する</span>
+                    </div>
+
+                    <!-- 光るエフェクト -->
+                    <div
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine">
+                    </div>
+                </a>
+                <p class="text-sm text-gray-500 font-medium mt-4 whitespace-nowrap">正式契約するまで、費用は一切かかりません</p>
+            </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 悩み共感 -->
+    <!-- ============================================== -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+            <h2 class="text-2xl font-bold text-brand-navy mb-8">こんなお悩みありませんか？</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <!-- Card 1: IT用語 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="h-48 md:h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                            alt="PC操作に悩む人"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-brand-navy mb-3 flex items-center">
+                            <span class="mr-2 text-2xl">🤔</span> IT用語がわからない
+                        </h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            サーバー？ドメイン？専門用語ばかりで何を契約すればいいのか怖い。騙されそうで不安。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: 価格 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="h-48 md:h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+                            alt="電卓と計算"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-brand-navy mb-3 flex items-center">
+                            <span class="mr-2 text-2xl">💸</span> とにかく高い
+                        </h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            制作会社に見積もりを取ったら数十万円...。毎月の管理費まですごく高くて手が出ない。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: 更新 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="h-48 md:h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80"
+                            alt="忙しいデスクワーク"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-brand-navy mb-3 flex items-center">
+                            <span class="mr-2 text-2xl">💻</span> 更新がめんどくさい
+                        </h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            作ってもらったけど、パソコンを開くのが億劫で何年も放置している。情報の更新ができない。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 解決策セクション (画像追加) -->
+            <div class="mt-12 bg-brand-light rounded-2xl border-2 border-brand-orange/20 overflow-hidden shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="p-8 md:w-1/2 text-left">
+                        <p class="text-xl font-bold text-brand-navy mb-4">
+                            その悩み、<br>「<span class="text-brand-orange">クロスラボ</span>」が解決します。
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-justify">
+                            難しいことは全部丸投げでOK。<br>
+                            あなたは「お店のこと」や「お客さまのこと」を考えるだけで大丈夫です。
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-auto">
+                        <img src="./images/happy_owner.jpg" alt="Happy Restaurant Owner"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 制作の流れ (サプライズ演出) -->
+    <!-- ============================================== -->
+    <section id="process" class="py-20 bg-brand-navy text-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm">Flow</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2">驚きの制作手順</h2>
+                <p class="text-gray-400 mt-4">完成品を見てから契約できる、<br>業界でも珍しいスタイルです。</p>
+                <div
+                    class="mt-8 bg-white text-brand-navy font-bold inline-block px-6 py-4 rounded-xl border-4 border-brand-orange shadow-lg text-base md:text-lg relative transform hover:-translate-y-1 transition duration-300 z-20">
+                    <span class="text-2xl mr-1 align-middle">🚀</span>
+                    修正依頼も画像のやり取りも<br>
+                    <span class="text-brand-orange text-xl font-bold whitespace-nowrap">全てLINEで完結</span><br
+                        class="md:hidden">難しいパソコン操作は一切不要です！
+                </div>
+                <!-- Zoom補足 -->
+                <p class="text-xs md:text-sm text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">
+                    ※文章で伝えにくい点は、<strong class="text-white border-b border-gray-500">Zoom（ビデオ通話）</strong>を繋いで、<br>
+                    実際の画面を見ながらのご相談も可能です。<br>
+                    ご希望の方はお気軽にお申し付けください。
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    <!-- 縦線 (Left Aligned Line) -->
+                    <div class="absolute left-4 top-0 h-full w-1 bg-gray-700"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start mb-12 group">
+                        <!-- Icon -->
+                        <div
+                            class="relative z-10 flex-shrink-0 w-9 h-9 bg-brand-orange rounded-full border-4 border-brand-navy flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                            1
+                        </div>
+                        <!-- Content -->
+                        <div class="pl-8 pt-[2px]">
+                            <h3 class="text-xl font-bold text-brand-orange mb-2 leading-tight">STEP 1. まずは公式LINEに登録</h3>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed text-justify">
+                                ページ内のボタンから公式LINEに登録してください。<br>
+                                まだお金は1円もかかりません。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start mb-12 group">
+                        <!-- Icon -->
+                        <div
+                            class="relative z-10 flex-shrink-0 w-9 h-9 bg-gray-600 rounded-full border-4 border-brand-navy flex items-center justify-center font-bold text-white group-hover:bg-brand-orange transition-colors duration-500">
+                            2
+                        </div>
+                        <!-- Content -->
+                        <div class="pl-8 pt-[2px]">
+                            <h3
+                                class="text-xl font-bold text-white mb-2 group-hover:text-brand-orange transition duration-300 leading-tight">
+                                STEP 2. LINEの案内に沿って、<br class="md:hidden">情報や写真を送信
+                            </h3>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed text-justify">
+                                LINEで届くメッセージの手順通りに進めるだけでOK。<br>
+                                スマホひとつで簡単に入力が完了します。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start mb-12 group">
+                        <!-- Icon -->
+                        <div
+                            class="relative z-10 flex-shrink-0 w-9 h-9 bg-gray-600 rounded-full border-4 border-brand-navy flex items-center justify-center font-bold text-white group-hover:bg-brand-orange transition-colors duration-500">
+                            3
+                        </div>
+                        <!-- Content -->
+                        <div class="pl-8 pt-[2px]">
+                            <h3
+                                class="text-xl font-bold text-white mb-2 group-hover:text-brand-orange transition duration-300 leading-tight">
+                                STEP 3. デモサイト完成のご連絡<br class="md:hidden">（ここまで無料）
+                            </h3>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed text-justify">
+                                最短3日でデモサイトが完成します。<br>
+                                実際の画面をスマホで見てください。<br>
+                                <span class="text-yellow-400 font-bold">正式契約前のキャンセルは無料です。</span><br>
+                                <span
+                                    class="text-[10px] text-gray-400 block leading-tight mt-1">※正式契約（お支払い）まではいつでもキャンセル無料です。<br>ただし、納品後の返金は<span
+                                        style="word-break: keep-all;">性質上致しかねます。</span></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start group">
+                        <!-- Icon -->
+                        <div
+                            class="relative z-10 flex-shrink-0 w-9 h-9 bg-gray-600 rounded-full border-4 border-brand-navy flex items-center justify-center font-bold text-white group-hover:bg-brand-orange transition-colors duration-500">
+                            4
+                        </div>
+                        <!-- Content -->
+                        <div class="pl-8 pt-[2px]">
+                            <h3
+                                class="text-xl font-bold text-white mb-2 group-hover:text-brand-orange transition duration-300 leading-tight">
+                                STEP 4. 公開！
+                            </h3>
+                            <p class="text-gray-300 text-xs md:text-sm leading-relaxed text-justify">
+                                世界中にあなたのお店が公開されます。<br>
+                                公開後の修正もLINEでいつでもご連絡ください。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 料金プラン (わかりやすく) -->
+    <!-- ============================================== -->
+    <section id="price" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4 md:px-6 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm">Price</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-brand-navy">料金システム</h2>
+                <p class="text-gray-600 mt-4">契約期間の縛りは一切ありません。<br>合わなければいつでも解約可能です。</p>
+            </div>
+
+            <div class="flex flex-col items-center space-y-4">
+
+                <!-- STEP 1 Card -->
+                <div
+                    class="w-full bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-brand-orange relative z-10">
+                    <div class="bg-brand-orange text-white text-center py-2 font-bold text-lg">
+                        初回費用<span class="text-xs md:text-sm ml-1 font-medium">（一回のみ）</span>
+                    </div>
+                    <div class="p-4 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-center md:text-left flex-1">
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">初回モニター制作</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li class="flex items-center justify-center md:justify-start"><span
+                                        class="text-brand-orange mr-2">✔</span> TOPページ制作</li>
+                                <li class="flex items-center justify-center md:justify-start"><span
+                                        class="text-brand-orange mr-2">✔</span> スマホ完全対応</li>
+                                <li class="flex items-center justify-center md:justify-start"><span
+                                        class="text-brand-orange mr-2">✔</span> 納得いくまで修正し放題</li>
+                            </ul>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 font-bold mb-1">モニター価格 <span class="whitespace-nowrap"
+                                    style="white-space: nowrap;">(税込)</span></p>
+                            <p class="text-5xl font-black text-brand-orange whitespace-nowrap">5,000<span
+                                    class="text-lg text-gray-400 font-medium ml-1">円</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flex flex-col items-center">
+                    <div class="h-8 w-1 bg-gray-300"></div>
+                    <div
+                        class="bg-white border-2 border-brand-orange text-brand-orange px-4 py-1 rounded-full text-xs font-bold shadow-sm whitespace-nowrap z-20">
+                        気に入ったら継続（いつでも解約OK）
+                    </div>
+                    <div class="h-8 w-1 bg-gray-300"></div>
+                    <div
+                        class="w-0 h-0 border-l-[10px] border-l-transparent border-t-[15px] border-t-gray-300 border-r-[10px] border-r-transparent">
+                    </div>
+                </div>
+
+                <!-- STEP 2 Card -->
+                <div class="w-full bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 relative">
+                    <div class="bg-brand-navy text-white text-center py-2 font-bold text-lg">
+                        翌月以降<span class="text-xs md:text-sm ml-1 font-medium">（月額）</span>
+                    </div>
+                    <div class="p-4 md:p-8">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="text-center md:text-left flex-1">
+                                <h3 class="text-2xl font-bold text-brand-navy mb-2">サイト運用・更新</h3>
+                                <p class="text-xs text-brand-orange font-bold mb-3">※合わなければSTEP1だけで終了OK！追加費用なし</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li class="flex items-center justify-center md:justify-start"><span
+                                            class="text-brand-navy mr-2">✔</span> <span
+                                            class="font-bold bg-yellow-100">サーバー代コミコミ (0円)</span></li>
+                                    <li class="block">
+                                        <div class="flex items-center justify-center md:justify-start">
+                                            <span class="text-brand-navy mr-2">✔</span>
+                                            月1回の更新サポート付き
+                                        </div>
+                                        <p
+                                            class="mt-1 ml-6 text-[10px] sm:text-xs text-gray-500 leading-snug text-left tracking-tighter">
+                                            <span class="whitespace-nowrap">※対象範囲：既存ページ内の「文章修正」「画像の差し替え」</span><br>
+                                            （ページ追加や大幅なデザイン変更は別途お見積り）
+                                        </p>
+                                    </li>
+                                    <li class="flex items-center justify-center md:justify-start"><span
+                                            class="text-brand-navy mr-2">✔</span> LINEで修正依頼OK</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-sm text-gray-500 font-bold mb-1">月額費用 <span class="whitespace-nowrap"
+                                        style="white-space: nowrap;">(税込)</span></p>
+                                <p class="text-4xl font-black text-brand-navy whitespace-nowrap mb-0 md:mb-0">3,000<span
+                                        class="text-lg text-gray-400 font-medium ml-1">円</span></p>
+                            </div>
+                        </div>
+
+                        <!-- サービス詳細と稼働時間 -->
+                        <div class="mt-5 mb-4 text-left">
+                            <div class="bg-orange-50 rounded-lg p-4 border border-orange-200 mb-3">
+                                <p class="text-sm font-bold text-gray-800 mb-2">
+                                    <span class="text-xl mr-1">🤝</span>月3,000円に含まれるもの
+                                </p>
+                                <ul class="text-xs text-gray-700 space-y-2 list-disc pl-5 marker:text-brand-orange">
+                                    <li>ホームページの文章・画像修正</li>
+                                    <li><span class="font-bold border-b border-orange-300">Instagramの発信・活用相談</span></li>
+                                    <li><span class="font-bold border-b border-orange-300">LINE公式アカウントの設定サポート</span>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-[10px] text-gray-500">
+                                    ※ITに不慣れな方でも、LINEで気軽にご相談いただけます。
+                                </p>
+                            </div>
+
+                            <div class="flex items-start gap-2 px-1">
+                                <span class="text-lg">⚠️</span>
+                                <p class="text-[11px] text-gray-500 leading-snug">
+                                    <span class="font-bold text-gray-600">稼働時間について（安さの理由）</span><br>
+                                    現役の理学療法士として勤務しているため、<span
+                                        class="underline decoration-dotted">作業や返信は主に「平日夜間・土日」</span>となります。<br>
+                                    即レスは難しいですが、<span class="font-bold">「3日以内の返信」</span>を心がけて対応いたします。<br>
+                                    （その分、格安で専属サポートを提供します！）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Independent Action Block -->
+                <div class="mt-6 flex flex-col items-center">
+                    <a href="https://lin.ee/4PXrsoU" target="_blank"
+                        class="inline-flex items-center justify-center bg-[#06C755] text-white h-auto py-3 px-6 rounded-full hover:bg-green-600 transition mb-3 shadow-md transform hover:-translate-y-0.5">
+                        <svg class="w-6 h-6 mr-3 fill-current flex-shrink-0" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2.5C6.8 2.5 2.5 6.2 2.5 10.8c0 2.6 1.4 4.9 3.5 6.4 0 0 .4 1.2-.1 3.7 0 0 2.2-.2 4.9-1.9 1.1.2 2.2.2 3.1.2 5.2 0 9.5-3.7 9.5-8.3S17.2 2.5 12 2.5z" />
+                        </svg>
+                        <div class="text-left leading-tight">
+                            <span class="text-xs font-bold block">LINEで今すぐ</span>
+                            <span class="text-base font-black block">無料デモを依頼する</span>
+                        </div>
+                    </a>
+                    <div class="text-xs text-gray-500 font-medium leading-tight">
+                        契約期間の縛りは一切ありません。<br>サブスク解約はいつでも可能です。
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Removed Green Box as text moved to card -->
+
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+                    ※お支払いは<span class="font-bold text-gray-700">「クレジットカード」</span>のみ対応しています。<br>
+
+                    <span class="text-[10px] sm:text-xs tracking-tighter block mt-1">
+                        (VISA, Mastercard, AMEX, JCB, Dinersなど主要ブランド対応)
+                    </span>
+
+                    <span class="text-brand-orange font-bold block mt-1">
+                        ※手数料無料
+                    </span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 block mt-2">
+                        ※決済は大手決済代行会社（Square等）を使用しており、<br>
+                        当社がお客様のクレジットカード情報を保持することはありません。
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- プロフィール・権威性 -->
+    <!-- ============================================== -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+
+
+
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                <!-- Profile Image -->
+                <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+                    <img src="./Gemini_Generated_Image_x7hliyx7hliyx7hl.png" alt="Profile"
+                        class="w-full h-full object-cover rounded-full shadow-xl border-4 border-slate-50">
+                </div>
+
+                <!-- Content -->
+                <div class="text-center md:text-left">
+
+
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Webクリエイター / 理学療法士：ナオ</h3>
+
+                    <p class="text-gray-600 leading-relaxed mb-6 text-justify md:text-left">
+                        はじめまして、クロスラボ代表のナオです。<br>
+                        理学療法士として20年の経験を持ちながら、<br>
+                        現在は福島県郡山市でWeb制作を行っています。<br>
+                        また、Instagramで1万フォロワーを超える<br>
+                        『ナオの福島グルメ』を運営。<br>
+                        <br>
+                        その発信力を活かした『集客につながる』<br>
+                        サイト構成をご提案します。
+                    </p>
+
+                    <div class="mt-6">
+                        <p class="text-sm font-bold text-gray-500 mb-2">▼ 日々の食べ歩き投稿はこちら</p>
+                        <a href="https://www.instagram.com/nao_fukusima_gurume" target="_blank"
+                            class="block hover:opacity-90 transition">
+                            <img src="images/insta_grid.png" alt="Instagram投稿一覧"
+                                class="w-full rounded-xl shadow-md cursor-pointer hover:opacity-90 transition">
+                        </a>
+                    </div>
+
+
+
+
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- お問い合わせ (Contact) -->
+    <!-- ============================================== -->
+    <section id="contact" class="py-20 bg-brand-navy text-white text-center relative overflow-hidden">
+        <!-- 背景装飾 -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div
+                class="absolute right-0 top-0 w-64 h-64 bg-brand-orange rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">公式LINEで無料相談<br>デモ作成依頼</h2>
+            <p class="text-sm md:text-lg text-gray-300 mb-10 font-bold whitespace-nowrap">
+                友だち追加するとすぐに制作が開始できます
+            </p>
+
+            <!-- LINE Button Area -->
+            <div class="bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
+                <a href="https://lin.ee/4PXrsoU" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] text-white h-auto py-5 px-10 rounded-full shadow-lg hover:shadow-[#06C755]/50 hover:-translate-y-1 transition duration-300 w-full relative group overflow-hidden max-w-lg md:w-auto">
+                    <!-- LINE Icon (Simple Bubble) -->
+                    <svg class="w-10 h-10 mr-4 fill-current flex-shrink-0" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.5C6.8 2.5 2.5 6.2 2.5 10.8c0 2.6 1.4 4.9 3.5 6.4 0 0 .4 1.2-.1 3.7 0 0 2.2-.2 4.9-1.9 1.1.2 2.2.2 3.1.2 5.2 0 9.5-3.7 9.5-8.3S17.2 2.5 12 2.5z" />
+                    </svg>
+                    <div class="text-left leading-tight relative z-10">
+                        <span class="text-sm md:text-base font-bold block">LINEで今すぐ</span>
+                        <span class="text-xl md:text-2xl font-black block">無料相談する</span>
+                    </div>
+                </a>
+                <p class="text-xs text-gray-400 mt-4 mb-8">
+                    ※PCの方は、クリック後に表示されるQRコードを<br>スマホで読み取ってください。
+                </p>
+
+                <!-- Merits -->
+                <div class="flex flex-col md:flex-row justify-center gap-4 text-sm font-bold text-gray-300">
+                    <span class="flex items-center justify-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                        <span class="text-[#06C755]">✔</span> 営業電話は一切しません
+                    </span>
+                    <span class="flex items-center justify-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                        <span class="text-[#06C755]">✔</span> ブロックでいつでも解除可能
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 特定商取引法に基づく表記・利用規約 -->
+    <!-- ============================================== -->
+    <section class="bg-gray-50 py-10 text-xs md:text-sm text-gray-500">
+        <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+            <details class="group">
+                <summary
+                    class="cursor-pointer font-bold text-gray-600 hover:text-brand-orange transition flex items-center justify-center gap-2 list-none">
+                    <span>特定商取引法に基づく表記</span>
+                    <span class="transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <div class="mt-6 space-y-4 text-justify md:text-left bg-white p-6 rounded-xl shadow-inner">
+                    <!-- 1. 販売業者 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">販売業者</dt>
+                        <dd>Cross Lab Publishing</dd>
+                    </dl>
+                    <!-- 2. 運営統括責任者 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">運営統括責任者</dt>
+                        <dd>鈴木　成人</dd>
+                    </dl>
+                    <!-- 3. 所在地 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">所在地</dt>
+                        <dd>福島県郡山市</dd>
+                    </dl>
+                    <!-- 4. お支払い方法 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">お支払い方法</dt>
+                        <dd>クレジットカード決済（Square）</dd>
+                    </dl>
+                    <!-- 5. 商品代金以外の必要料金 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">商品代金以外の必要料金</dt>
+                        <dd>インターネット接続料金、通信料金等はお客様負担となります。</dd>
+                    </dl>
+                    <!-- 6. お支払い時期 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">お支払い時期</dt>
+                        <dd>初回契約時および、翌月以降毎月同日に自動課金されます。</dd>
+                    </dl>
+                    <!-- 7. 商品の引渡時期 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">商品の引渡時期</dt>
+                        <dd>決済完了後、即時（サービス利用開始）または、制作完了・公開納品時。</dd>
+                    </dl>
+                    <!-- 8. 返品・キャンセルについて -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 border-b border-gray-100 pb-4">
+                        <dt class="font-bold">返品・キャンセルについて</dt>
+                        <dd>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>正式契約（初回決済）まではいつでもキャンセル可能です（無料）。</li>
+                                <li style="word-break: keep-all;">デジタルコンテンツの性質上、納品後（本公開後）のお客様都合による返金は致しかねます。</li>
+                                <li>月額プランの解約は、次回更新日の前日までにLINEにてご連絡ください。</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <!-- 9. 動作環境 -->
+                    <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4">
+                        <dt class="font-bold">動作環境</dt>
+                        <dd>推奨ブラウザ（Chrome, Safari, Edge）の最新版</dd>
+                    </dl>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-slate-500 py-8 text-center text-xs md:text-sm border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-4">
+                <a href="#about" class="hover:text-white transition">プロフィール</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#process" class="hover:text-white transition">制作の流れ</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#price" class="hover:text-white transition">料金プラン</a>
+            </div>
+            <p>&copy; 2026 Cross Lab Publishing. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEADERS | 福島SNSコミュニティ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- SWELL互換 & Real Value風 High-End Monotone Style --- */
+        :root {
+            --color-main: #1a1a1a;
+            /* リッチブラック */
+            --color-text: #444444;
+            /* ダークグレー */
+            --color-bg-light: #eeeeee;
+            /* 洗練されたライトグレー */
+            --color-line: #06C755;
+            /* LINE Brand Color */
+            --font-base: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+            --font-en: "Montserrat", "Futura", sans-serif;
+        }
+
+        /* 基本設定 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-base);
+            color: var(--color-text);
+            line-height: 2.0;
+            /* ゆったりとした行間 */
+            -webkit-font-smoothing: antialiased;
+            background-color: #f4f4f4;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: bottom;
+            filter: saturate(0.7);
+            transition: filter 0.3s ease;
+        }
+
+        img:hover {
+            filter: saturate(1);
+        }
+
+        /* ユーティリティ */
+        .lp-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .lp-section {
+            padding: 120px 0;
+            /* 余白を広げて高級感を出す */
+        }
+
+        .u-text-center {
+            text-align: center;
+        }
+
+        .u-mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .u-mb-40 {
+            margin-bottom: 40px;
+        }
+
+        .u-mb-60 {
+            margin-bottom: 60px;
+        }
+
+        /* タイポグラフィ */
+        .lp-title-ja {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            color: var(--color-main);
+        }
+
+        .lp-title-en {
+            display: block;
+            font-family: var(--font-en);
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* 1. HERO SECTION (Immersive) */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/hero_final.png') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+            /* グラデーションで奥行きを */
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+        .hero-catch {
+            font-family: "Anton", "Noto Sans JP", sans-serif;
+            font-size: 6rem;
+            font-weight: 400;
+            /* Anton is bold by default */
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Badges */
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge span {
+            color: #ffd700;
+            /* Gold check */
+            font-size: 1.1rem;
+        }
+
+        /* LINE Button (SWELL Style + Glow) */
+        .swell-btn-line {
+            background-color: var(--color-line);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(6, 199, 85, 0.3);
+        }
+
+        .swell-btn-line:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(6, 199, 85, 0.5);
+        }
+
+        .swell-btn-line svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            fill: #fff;
+        }
+
+        /* 2. PHILOSOPHY / BENEFITS (Grid Layout) */
+        .bg-gray {
+            background-color: var(--color-bg-light);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: #111111;
+            padding: 40px 30px;
+            border: 1px solid #333333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-num {
+            font-family: var(--font-en);
+            font-size: 4rem;
+            font-weight: 900;
+            color: #2a2a2a;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-family: "Helvetica Neue", sans-serif;
+        }
+
+        .benefit-head {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+        }
+
+        .benefit-desc {
+            font-size: 0.95rem;
+            color: #cccccc;
+            text-align: justify;
+        }
+
+        .benefit-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center top;
+            /* ウォーターマークを隠すために上部基準で表示 */
+            border-radius: 6px;
+            margin-bottom: 24px;
+        }
+
+        /* 3. VISUAL SECTION (Full Wide) */
+        .visual-section {
+            position: relative;
+            padding: 0;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 10s ease;
+            /* ゆっくりズーム */
+        }
+
+        .visual-section:hover .visual-img {
+            transform: scale(1.05);
+        }
+
+        .visual-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            padding: 60px;
+            max-width: 500px;
+            padding: 80px 60px;
+        }
+
+        .visual-head {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+        }
+
+        /* 4. CTA SECTION */
+        .cta-section {
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #333;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
+        }
+
+        /* 5. CONTACT */
+        .contact-placeholder {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 80px 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* FOOTER */
+        .lp-footer {
+            background: #000;
+            color: #666;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Organizer Section */
+        .organizer-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media(min-width: 768px) {
+            .organizer-card {
+                flex-direction: row;
+            }
+
+            .organizer-img-col {
+                width: 40%;
+            }
+
+            .organizer-content-col {
+                width: 60%;
+                padding: 40px;
+            }
+        }
+
+        .organizer-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .organizer-content-col {
+            padding: 30px;
+            text-align: left;
+        }
+
+        .org-role {
+            color: #888;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .org-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--color-main);
+            margin-bottom: 15px;
+        }
+
+        .org-human {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .org-msg {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            margin-bottom: 0;
+            border-bottom: 1px solid #ddd;
+            height: fit-content;
+        }
+
+        .faq-summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 30px 20px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--color-line);
+            transition: transform 0.3s;
+        }
+
+        details[open] .faq-summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 0 20px 0;
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Floating LINE Button */
+        .floating-line-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: var(--color-line);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            animation: float 3s infinite ease-in-out;
+            transition: transform 0.3s;
+        }
+
+        .floating-line-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .floating-line-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Responsive SP */
+        @media (max-width: 768px) {
+            .hero-catch {
+                font-size: 3.5rem;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .lp-section {
+                padding: 80px 0;
+            }
+
+            .visual-section {
+                height: auto;
+            }
+
+            .visual-text {
+                position: relative;
+                max-width: 100%;
+                padding: 40px 20px;
+            }
+
+            .swell-btn-line {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Floating Button Mobile Style */
+            .floating-line-btn {
+                width: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+                justify-content: center;
+                padding: 18px;
+                animation: none;
+                box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lp-wrapper">
+
+        <header class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-catch">LEADERS／福島</h1>
+                <p class="hero-sub">SNS × BUSINESS × COMMUNITY<br>20代の野心と才能が交差する場所。</p>
+
+                <div class="hero-badges">
+                    <div class="hero-badge"><span>✔</span> 参加費無料キャンペーン中</div>
+                    <div class="hero-badge"><span>✔</span> 福島県限定</div>
+                    <div class="hero-badge"><span>✔</span> プロのSNS添削付き</div>
+                </div>
+
+                <div class="btn-line-wrapper">
+                    <a href="https://line.me/R/ti/p/@dummy" class="swell-btn-line" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 5.56 2 9.95c0 2.6 1.58 4.93 4.14 6.32-.18.66-.64 2.37-.73 2.72-.1.35-.04.7.27.87.31.17.75.05 2.87-1.39l.16-.11c2.18.9 4.3.9 4.3.9 5.52 0 10-3.56 10-7.95S17.52 2 12 2z">
+                            </path>
+                        </svg>
+                        まずは公式LINEで限定情報をのぞいてみる（無料）
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="lp-section bg-gray">
+            <div class="lp-container">
+                <div class="u-text-center u-mb-60">
+                    <span class="lp-title-en">OUR VALUE</span>
+                    <h2 class="lp-title-ja">LEADERSが選ばれる理由</h2>
+                    <p style="font-size: 0.9rem; color:#888;">なぜ、私たちが選ばれるのか。</p>
+                </div>
+
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-num">01</div>
+                        <img src="images/value_01.png" alt="SNS運用イメージ" class="benefit-img">
+                        <h3 class="benefit-head">Professional Feedback<br>現役インフルエンサーEitaによる<br>実践フィードバック</h3>
+                        <p class="benefit-desc">
+                            SNS運用の最前線で活躍するEita本人が、あなたの発信を直接チェック。一般的なスクールでは得られない「生きた」フィードバックで、最短距離で影響力を高めます。</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-num">02</div>
+                        <img src="images/value_02.png" alt="経営者との交流" class="benefit-img">
+                        <h3 class="benefit-head">Executive Network<br>経営者との繋がり</h3>
+                        <p class="benefit-desc">
+                            グルメ取材で培ったリアルな店舗・経営者とのネットワークを提供。単なる交流会ではなく、実際のビジネスやプロジェクトに直結する、質の高い出会いを創出します。</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-num">03</div>
+                        <img src="images/value_03.png" alt="成長するコミュニティ" class="benefit-img">
+                        <h3 class="benefit-head">Growth Environment<br>地域密着の成長環境</h3>
+                        <p class="benefit-desc">
+                            「福島を面白くしたい」という熱量を持った同世代の仲間が集結。互いに刺激し合い、切磋琢磨できる環境で、個人のスキルアップと地域貢献を同時に実現します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organizer Section -->
+        <section class="lp-section bg-white">
+            <div class="lp-container">
+                <div class="u-text-center u-mb-60">
+                    <span class="lp-title-en">ORGANIZER</span>
+                    <h2 class="lp-title-ja">主催者・メンター紹介</h2>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-img-col">
+                        <img src="https://placehold.co/800x600/333/fff?text=Image+Space" alt="Eita Profile">
+                    </div>
+                    <div class="organizer-content-col">
+                        <span class="org-role">福島県特化型グルメインフルエンサー / LEADERS主宰</span>
+                        <h3 class="org-name">Eita</h3>
+                        <div class="org-human">
+                            <b>「食のエンターテイメント」で福島を熱くする。</b>
+                        </div>
+                        <p class="org-msg">
+                            福島県郡山市を拠点に活動するグルメインフルエンサー。<br>
+                            「食のエンターテイメント」をテーマに、県内の隠れた名店や話題のスポットを発信し続け、多くのファンと飲食店を繋ぐ架け橋となる。<br>
+                            SNS運用で培った発信力と、取材を通じて築いた経営者ネットワークを武器に、次世代のリーダーを育成する「LEADERS」を立ち上げ。<br>
+                            「好きなことで地域に貢献する」新しい働き方を自ら体現し、そのノウハウを惜しみなく提供している。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visual-section">
+            <img src="images/message_final.png" alt="LEADERS Community" class="visual-img">
+            <div class="visual-text">
+                <h3 class="visual-head">「個」の力を、<br>福島の力に。</h3>
+                <p>LEADERSは、本気で挑戦する人のためのサードプレイスです。待っているのは、あなたと同じ熱量を持った仲間たちです。</p>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="lp-section bg-gray">
+            <div class="lp-container">
+                <div class="u-text-center u-mb-60">
+                    <span class="lp-title-en">Q&A</span>
+                    <h2 class="lp-title-ja">よくある質問</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. SNS初心者ですが大丈夫ですか？</summary>
+                        <div class="faq-answer">
+                            A. 大歓迎です。ゼロから学べるカリキュラムと添削環境がありますので、安心してご参加ください。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. 普段仕事が忙しいのですが参加できますか？</summary>
+                        <div class="faq-answer">
+                            A. はい、オンライン中心なので自分のペースで参加可能です。ロム専（見るだけ）でも十分に学びがあるよう設計しています。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. 本当に無料ですか？</summary>
+                        <div class="faq-answer">
+                            A. はい、現在は立ち上げ記念期間中のため、コミュニティへの参加・添削機能などすべてを無料で開放しています。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. まだ自分のビジネスや商品がないのですが、参加しても大丈夫ですか？</summary>
+                        <div class="faq-answer">
+                            A. もちろんです。「これから何か始めたい」「将来のためにスキルを身につけたい」という会社員や学生の方も多く参加されています。まずは環境に触れることから始めてみてください。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. リアルな交流会はどこで開催されますか？</summary>
+                        <div class="faq-answer">
+                            A. 主に拠点の「郡山市内」で開催しています。月に1回程度の頻度で、食事会や勉強会を行っています（参加は任意です）。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. 年齢制限はありますか？30代以上でも参加できますか？</summary>
+                        <div class="faq-answer">
+                            A. 20代が中心のコミュニティではありますが、マインドセットが若く、熱意のある方であれば年齢は問いません。経営者の方は30代・40代の方もメンターとして関わっています。
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">Q. フォロワーが少なくても参加できますか？</summary>
+                        <div class="faq-answer">
+                            A. 大歓迎です。フォロワーを増やすためのノウハウや、影響力を持つための道筋を学ぶ場所ですので、現在のフォロワー数は全く関係ありません。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="lp-section cta-section">
+            <div class="lp-container">
+                <div class="cta-inner">
+                    <h2 class="u-mb-20" style="font-size: 1.8rem; font-weight: bold;">Join the Community</h2>
+                    <p class="u-mb-40" style="opacity: 0.8;">イベントの優先案内や、SNS攻略の限定ノウハウを配信中。<br>登録は完全無料です。</p>
+                    <a href="https://line.me/R/ti/p/@dummy" class="swell-btn-line" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 5.56 2 9.95c0 2.6 1.58 4.93 4.14 6.32-.18.66-.64 2.37-.73 2.72-.1.35-.04.7.27.87.31.17.75.05 2.87-1.39l.16-.11c2.18.9 4.3.9 4.3.9 5.52 0 10-3.56 10-7.95S17.52 2 12 2z">
+                            </path>
+                        </svg>
+                        まずは公式LINEで限定情報をのぞいてみる（無料）
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="lp-section" id="contact">
+            <div class="lp-container">
+                <div class="u-text-center u-mb-60">
+                    <span class="lp-title-en">CONTACT</span>
+                    <h2 class="lp-title-ja">お問い合わせ</h2>
+                </div>
+                <div class="contact-placeholder">
+                    <p>ここにGoogleフォームの埋め込みコード (iframe) を貼り付けてください。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="lp-footer">
+            <div class="lp-container">
+                <p style="color:#fff; font-weight:bold; margin-bottom:10px; font-size:1rem;">LEADERS | 福島SNSコミュニティ</p>
+                <p>&copy; 2024 LEADERS. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+    <!-- Floating LINE Button -->
+    <a href="https://line.me/R/ti/p/@dummy" class="floating-line-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M12 2C6.48 2 2 5.56 2 9.95c0 2.6 1.58 4.93 4.14 6.32-.18.66-.64 2.37-.73 2.72-.1.35-.04.7.27.87.31.17.75.05 2.87-1.39l.16-.11c2.18.9 4.3.9 4.3.9 5.52 0 10-3.56 10-7.95S17.52 2 12 2z">
+            </path>
+        </svg>
+        <span>LINEで限定情報を見る</span>
+    </a>
+
+</body>
+
+</html>
